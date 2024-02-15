@@ -52,7 +52,7 @@ export default function Home() {
         </div>
       </header>
       <div className="container mx-auto p-4 mt-12">
-        <div className="bg-sLight text-primary p-4 shadow-md rounded-md mt-3 flex">
+        <div className="bg-white text-primary p-4 shadow-md rounded-md mt-3 flex">
           <div className="basis-1/2">
             <div className="flex items-end">
               <span className="text-[32px]">Blog 1</span>{" "}
@@ -66,7 +66,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="p-4 shadow-md rounded-md mt-3 markdown-wrapper">
+        <div className="p-4 bg-white shadow-md rounded-md mt-3 markdown-wrapper">
           <Markdown remarkPlugins={[remarkGfm]}>{fileContent}</Markdown>
         </div>
       </div>
