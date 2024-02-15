@@ -9,6 +9,18 @@ import remarkGfm from "remark-gfm";
 export default function Home() {
   const { theme, setTheme } = useContext(ThemeContext);
   const [fileContent, setFileContent] = useState<string>("");
+  const [totalCommit, setTotalCommit] = useState(0);
+
+  var extractLastPage = (url: string): string | null => {
+    const regex = /<([^>]+)>;\s*rel="last"/;
+    const match = url.match(regex);
+
+    if (match && match[1]) {
+      const queryParams = new URLSearchParams(match[1].split("?")[1]);
+      return queryParams.get("page");
+    }
+    return null;
+  };
 
   useEffect(() => {
     var fetchData = async () => {
@@ -17,7 +29,20 @@ export default function Home() {
       setFileContent(content);
     };
 
+    var fetchCommit = async () => {
+      var response = await fetch(
+        "https://api.github.com/repos/AlperGurel/homepage/commits?sha=main&per_page=1&page=1"
+      );
+      var data = await response.json();
+      var linkHeader = response.headers.get("link");
+      if (linkHeader) {
+        var lastPage = extractLastPage(linkHeader);
+        setTotalCommit(parseInt(lastPage ? lastPage : "0"));
+      }
+    };
+
     fetchData();
+    fetchCommit();
   }, []);
 
   const handleThemeSwitch = () => {
@@ -36,7 +61,7 @@ export default function Home() {
             <b>/</b>
           </div>
           <div className="py-2">
-            Son commit <b>3 gün</b> önce. Toplam <b>32</b> commit.
+            Son commit <b>3 gün</b> önce. Toplam <b>{totalCommit}</b> commit.
           </div>
           <div className="flex gap-2">
             <div className="py-2 px-4 rounded-sm cursor-pointer transition hover:bg-slate-200">
