@@ -6,8 +6,9 @@ import Theme from "./theme";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Jörnal",
-  description: "Hayata ve yazılıma dair paylaşımlar yaptığım bir ortam.",
+  title: "Alper Gürel",
+  description:
+    "Bir developer portfoyü. Yazılım, hayat ve kişisel gelişim ile alakalı konular burada!",
 };
 
 export default function RootLayout({
@@ -17,7 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className + " bg-slate-50"}>
+      <body
+        className={inter.className + " bg-background text-slate-300 font-body"}
+      >
         <Theme>{children}</Theme>
       </body>
     </html>

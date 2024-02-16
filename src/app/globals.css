@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "ProtestRiot";
+  src: url("/fonts/ProtestRiot-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FiraSans";
+  src: url("/fonts/Fira_Sans/FiraSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .markdown-wrapper h1,
 h2,
 h3 {

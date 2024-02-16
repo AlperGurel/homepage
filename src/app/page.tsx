@@ -54,29 +54,38 @@ export default function Home() {
   };
 
   return (
-    <div className="relative text-slate-700">
-      <header className="fixed bg-white w-full top-0 bg-b shadow-sm backdrop-blur-sm border-b-2 border-black">
-        <div className="container mx-auto py-2 px-4 flex justify-between">
-          <div className="py-2 px-4 rounded-sm cursor-pointer transition hover:bg-slate-200">
-            <b>/</b>
+    <div className="relative">
+      <header className="w-full pt-12">
+        <div className="container mx-auto py-2 px-4 flex justify-between items-end">
+          <div className="cursor-pointer transition text-primary text-2xl font-logo">
+            Alper Gürel
           </div>
-          <div className="py-2">
-            Son commit <b>3 gün</b> önce. Toplam <b>{totalCommit}</b> commit.
+          <div className="flex gap-1 mr-auto ml-12">
+            <div className="cursor-pointer transition">Portföy</div>
           </div>
-          <div className="flex gap-2">
-            <div className="py-2 px-4 rounded-sm cursor-pointer transition hover:bg-slate-200">
-              Blog
-            </div>
-            <div
-              className="py-2 px-4 rounded-sm cursor-pointer transition hover:bg-slate-200"
-              onClick={handleThemeSwitch}
-            >
-              Theme Switch
-            </div>
+          <div className="">
+            Site yapımındaki commit sayısı
+            <b className="text-primary text-xl"> {totalCommit}</b>.
           </div>
         </div>
       </header>
-      <div className="container mx-auto p-4 mt-12">
+
+      <div className="h-[300px] bg-gradient-to-t from-[#222f3d] to-background">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          className="relative bottom-[0]"
+        >
+          <path
+            fill="#0E141A"
+            fill-opacity="1"
+            d="M0,224L60,229.3C120,235,240,245,360,229.3C480,213,600,171,720,149.3C840,128,960,128,1080,128C1200,128,1320,128,1380,128L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
+          ></path>
+        </svg>
+      </div>
+      <div className="text-white mt-[130px] container mx-auto">content</div>
+
+      {/* <div className="container mx-auto p-4 mt-12">
         <div className="bg-white text-primary p-4 shadow-md rounded-md mt-3 flex">
           <div className="basis-1/2">
             <div className="flex items-end">
@@ -94,7 +103,7 @@ export default function Home() {
         <div className="p-4 bg-white shadow-md rounded-md mt-3 markdown-wrapper">
           <Markdown remarkPlugins={[remarkGfm]}>{fileContent}</Markdown>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

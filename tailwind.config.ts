@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+const colors = require("tailwindcss/colors");
 
 const config: Config = {
   content: [
@@ -8,6 +9,10 @@ const config: Config = {
   ],
   darkMode: "class",
   theme: {
+    fontFamily: {
+      logo: ["ProtestRiot", "sans-serif"],
+      body: ["FiraSans", "Inter", "sans-serif"],
+    },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -15,9 +20,15 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
+    colors: {
+      ...colors,
+      primary: "#617bff",
+      secondary: "#ff0a78",
+      background: "#0E141A",
+    },
     container: {
       screens: {
-        "2xl": "1280px",
+        "2xl": "1120px",
       },
     },
   },
