@@ -5,22 +5,11 @@ import { useContext, useEffect, useState } from "react";
 import ThemeContext from "./context/themeContext";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import Header from "./header";
 
 export default function Home() {
   const { theme, setTheme } = useContext(ThemeContext);
   const [fileContent, setFileContent] = useState<string>("");
-  const [totalCommit, setTotalCommit] = useState(0);
-
-  var extractLastPage = (url: string): string | null => {
-    const regex = /<([^>]+)>;\s*rel="last"/;
-    const match = url.match(regex);
-
-    if (match && match[1]) {
-      const queryParams = new URLSearchParams(match[1].split("?")[1]);
-      return queryParams.get("page");
-    }
-    return null;
-  };
 
   useEffect(() => {
     var fetchData = async () => {
@@ -28,21 +17,7 @@ export default function Home() {
       var content = await response.text();
       setFileContent(content);
     };
-
-    var fetchCommit = async () => {
-      var response = await fetch(
-        "https://api.github.com/repos/AlperGurel/homepage/commits?sha=main&per_page=1&page=1"
-      );
-      var data = await response.json();
-      var linkHeader = response.headers.get("link");
-      if (linkHeader) {
-        var lastPage = extractLastPage(linkHeader);
-        setTotalCommit(parseInt(lastPage ? lastPage : "0"));
-      }
-    };
-
     fetchData();
-    fetchCommit();
   }, []);
 
   const handleThemeSwitch = () => {
@@ -55,35 +30,35 @@ export default function Home() {
 
   return (
     <div className="relative">
-      <header className="w-full pt-12">
-        <div className="container mx-auto py-2 px-4 flex justify-between items-end">
-          <div className="cursor-pointer transition text-primary text-2xl font-logo">
-            Alper Gürel
-          </div>
-          <div className="flex gap-1 mr-auto ml-12">
-            <div className="cursor-pointer transition">Portföy</div>
-          </div>
-          <div className="">
-            Site yapımındaki commit sayısı
-            <b className="text-primary text-xl"> {totalCommit}</b>.
-          </div>
-        </div>
-      </header>
-
-      <div className="h-[300px] bg-gradient-to-t from-[#222f3d] to-background">
+      <Header />
+      <div className="bg-gradient-to-t from-[#202d3b] to-background pt-[60px] md:pt-[200px]">
         <svg
+          data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1440 320"
-          className="relative bottom-[0]"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          className="relative block h-[60px] w-[100%] botom-0"
         >
           <path
             fill="#0E141A"
-            fill-opacity="1"
-            d="M0,224L60,229.3C120,235,240,245,360,229.3C480,213,600,171,720,149.3C840,128,960,128,1080,128C1200,128,1320,128,1380,128L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
+            d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
           ></path>
         </svg>
       </div>
-      <div className="text-white mt-[130px] container mx-auto">content</div>
+      <div className="text-stone-300 container mx-auto mt-8 md:mt-32 px-4 xl:px-0">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae
+        sagittis odio. Vivamus ullamcorper diam sit amet odio condimentum, sit
+        amet scelerisque tellus sodales. Ut massa purus, luctus id ultricies ac,
+        finibus sit amet mauris. Vestibulum tincidunt posuere nulla non
+        elementum. Duis a massa diam. Curabitur nec urna tempor nisl malesuada
+        viverra non sed lorem. Pellentesque sit amet placerat massa. Vestibulum
+        et leo interdum eros vulputate faucibus. Curabitur pretium urna tellus,
+        quis tincidunt sapien blandit eget. Vestibulum congue interdum libero,
+        nec volutpat tellus consequat vitae. In hac habitasse platea dictumst.
+        Nulla vel dolor pellentesque enim consequat maximus vitae quis ante.
+        Integer pretium purus pharetra elit dapibus, rutrum efficitur enim
+        tristique.
+      </div>
 
       {/* <div className="container mx-auto p-4 mt-12">
         <div className="bg-white text-primary p-4 shadow-md rounded-md mt-3 flex">
