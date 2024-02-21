@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [totalCommit, setTotalCommit] = useState(0);
@@ -6,6 +8,8 @@ export default function Header() {
   const [position1, setPosition1] = useState("translate-x-[-300px]");
   const [position2, setPosition2] = useState("translate-x-[-400px]");
   const [position3, setPosition3] = useState("translate-x-[-500px]");
+
+  const pathname = usePathname();
 
   var extractLastPage = (url: string): string | null => {
     const regex = /<([^>]+)>;\s*rel="last"/;
@@ -65,17 +69,22 @@ export default function Header() {
               <li
                 className={`font-bold text-2xl cursor-pointer ${position1} transition-transform`}
               >
-                /
-              </li>
-              <li
-                className={`font-bold text-2xl cursor-pointer ${position2} transition-transform duration-500`}
-              >
-                Blog
+                <Link href="/"> /</Link>
               </li>
               <li
                 className={`font-bold text-2xl cursor-pointer ${position3} transition-transform duration-300`}
               >
-                Hakkımda
+                <Link href="/portfolio">Portföy</Link>
+              </li>
+              <li
+                className={`font-bold text-2xl cursor-pointer ${position3} transition-transform duration-300`}
+              >
+                <Link href="/ilham-perileri">İlham Perilerim</Link>
+              </li>
+              <li
+                className={`font-bold text-2xl cursor-pointer ${position2} transition-transform duration-500`}
+              >
+                <Link href="/blog">Blog</Link>
               </li>
             </ul>
           </nav>
@@ -85,13 +94,32 @@ export default function Header() {
       <header className="w-full pt-4 md:pt-12">
         <div className="container mx-auto py-2 px-4 xl:px-0 flex justify-between items-end">
           <div className="cursor-pointer transition text-primary text-xl md:text-2xl font-logo">
-            Alper Gürel
+            <Link href="/">Alper Gürel</Link>
           </div>
           <nav className="mr-auto hidden ml-12 lg:ml-24 md:block">
             <ul className="flex gap-8 lg:gap-16">
-              <li className="cursor-pointer">Portföy</li>
-              <li className="cursor-pointer">İlham Perilerim</li>
-              <li className="cursor-pointer">Blog</li>
+              <li
+                className={`cursor-pointer ${
+                  pathname === "/portfolio" && "border-secondary border-b-2"
+                }`}
+              >
+                <Link href="/portfolio">Portföy</Link>
+              </li>
+              <li
+                className={`cursor-pointer ${
+                  pathname === "/ilham-perileri" &&
+                  "border-secondary border-b-2"
+                }`}
+              >
+                <Link href="/ilham-perileri">İlham Perilerim</Link>
+              </li>
+              <li
+                className={`cursor-pointer ${
+                  pathname === "/blog" && "border-secondary border-b-2"
+                }`}
+              >
+                <Link href="/blog">Blog</Link>
+              </li>
             </ul>
           </nav>
           <div className="hidden md:block">

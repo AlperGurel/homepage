@@ -45,19 +45,40 @@ export default function Home() {
           ></path>
         </svg>
       </div>
-      <div className="text-stone-300 container mx-auto mt-8 md:mt-32 px-4 xl:px-0">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae
-        sagittis odio. Vivamus ullamcorper diam sit amet odio condimentum, sit
-        amet scelerisque tellus sodales. Ut massa purus, luctus id ultricies ac,
-        finibus sit amet mauris. Vestibulum tincidunt posuere nulla non
-        elementum. Duis a massa diam. Curabitur nec urna tempor nisl malesuada
-        viverra non sed lorem. Pellentesque sit amet placerat massa. Vestibulum
-        et leo interdum eros vulputate faucibus. Curabitur pretium urna tellus,
-        quis tincidunt sapien blandit eget. Vestibulum congue interdum libero,
-        nec volutpat tellus consequat vitae. In hac habitasse platea dictumst.
-        Nulla vel dolor pellentesque enim consequat maximus vitae quis ante.
-        Integer pretium purus pharetra elit dapibus, rutrum efficitur enim
-        tristique.
+      <div className="text-stone-300 container mx-auto mt-8 md:mt-16 px-4 xl:px-0 leading-loose">
+        <p className="mt-8">Selam, ben Alper. Kodlamaya meraklı bir bireyim.</p>
+        <p className="mt-8">
+          Merakım lisede Taleworlds tarafından çıkarılan Mount&Blade isimli
+          oyuna mod yapma isteği ile başladı. Forumlarda python indirmen
+          gerekiyor dediler, ben de oradan başladım. İlk hesap makinemi
+          yaptıktan sonra bir dönem “E şimdi ben bu bilgiyle ne yapayım?”
+          diyerek ara verdiysem de sonradan ezberim kötü olduğu için geçemediğim
+          sözel dersleri ezberlemek için kodlamayı araç olarak kullanabileceğimi
+          fark ettim; bana sürekli edebiyat soruları soran bir komut satırı
+          uygulaması yazdım ve sonrasında hayatım başka bir pencereden bakmaya
+          başladım.
+        </p>
+        <p className="mt-8">
+          Çok sonraları, üniversite yıllarında, hırs edip bir C++ kitabı aldım
+          ve bölüm sonlarındaki alıştırmaları yapmaya başladım. Burada edindiğim
+          bilgiler bilgisayar mühendisi arkadaşlarımın ödevlerini yapmam için
+          yetiyordu. Kodlayabildikçe daha da sever hale geldim ve o yaz için
+          staj arayışlarına girdim. Çevre mühendisliği öğrencisi olsam da
+          kendimi geliştirip yazılım sektöründe hayatımı devam ettirmeye
+          kararlıydım, dolayısı ile stajımı da çevre mühendislerinin kullanacağı
+          yazılımlar geliştiren bir yerde yapmak istedim. Biraz ben çalıştım,
+          biraz şanslıydım ve böyle bir yere girebildim. Bu stajım da web
+          alanında kendimi daha da geliştireceğim bir sürecin başlangıcı oldu.{" "}
+        </p>
+        <p className="mt-8">
+          Sonraki yıllar kendimi farklı alanlarda geliştirmeye gayret ettim.
+          Özellikle ilgimi çeken konulara eğildim, web tabanlı uygulamalar
+          yaptım, machine learning temellerini öğrenerek JS ile kendi modelimi
+          oluşturdum, oyun sektörüne girerek severek oynadığımız oyunların nasıl
+          süreçlerden geçerek geliştirildiğini görme fırsatı buldum. Sektörün
+          farklı yüzlerinde 4 senenin üzerinde profesyonel deneyime sahip oldum.
+          Şu anda da developer rollerinde bir iş aramaktayım.{" "}
+        </p>
       </div>
 
       {/* <div className="container mx-auto p-4 mt-12">
